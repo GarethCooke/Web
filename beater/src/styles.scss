@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import './variables';
+
+html,
+body {
+  background-color: $primary;
+  height: 100%;
+  min-width: 320px;
+}
+body {
+  margin: 0px;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+.bb-thead,
+.bb-tbody {
+  display: block;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.bb-tbody {
+  overflow-y: auto;
+}
+
+.bb-td,
+.bb-th {
+  text-align: left;
+  user-select: none;
+}
+
+.bb-th {
+  padding-left: 5px;
+  background-color: $primary;
+  color: $primary-light;
+}
+
+.bb-tr:not(.selected-wap) {
+  background-color: darken($primary-light, 1%);
+}
+
+.selected-wap {
+  background-color: lightsteelblue;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

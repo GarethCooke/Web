@@ -1,0 +1,80 @@
+@use '~@angular/material' as mat;
+@import '~@angular/material/theming';
+@import './src/variables';
+
+.txt-msg-universe {
+  padding: $component-padding;
+  width: $component-width;
+  height: $component-height;
+  @include mat.elevation($component-elevation);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.txt-msg-universe > div {
+  position: relative;
+  align-items: bottom;
+  flex-direction: column;
+  padding: $main-component-padding;
+}
+
+input,
+.msgtxt {
+  position: relative;
+  display: flex;
+  white-space: nowrap;
+  font-family: DotMatrix;
+  align-items: center;
+  width: 100%;
+}
+
+.msgtxt {
+  height: 90px;
+  font-size: 80px;
+}
+
+.msb-box {
+  border-style: inset;
+  color: red;
+  background-color: lighten(black, 10%);
+}
+
+.slidecontrols {
+  display: flex;
+  bottom: 0px;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.slidecontrols > mat-label {
+  padding-right: 5px;
+}
+
+.scrollspeed,
+mat-form-field {
+  width: 100%;
+}
+
+mat-slide-toggle {
+  padding-left: $component-padding;
+}
+
+.scrollspeed > mat-label {
+  padding-left: 20px;
+}
+
+.scrollspeed {
+  align-items: center;
+  display: flex;
+  float: right;
+}
+
+mat-slider {
+  position: absolute;
+  display: block;
+  float: right;
+  right: 0px;
+  width: 42%;
+}

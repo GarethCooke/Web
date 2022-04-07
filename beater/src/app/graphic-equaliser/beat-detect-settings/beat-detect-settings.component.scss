@@ -1,0 +1,31 @@
+@import './src/variables';
+
+.beat-detect-universe {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+mat-label {
+  width: 100%;
+  text-align: left;
+  font-size: 0.8em;
+}
+
+mat-slider {
+  min-width: 50px;
+  width: 100%;
+  margin-left: $component-padding;
+  margin-right: $main-component-padding;
+}
+
+.controls {
+  margin-bottom: $main-component-padding;
+  margin-right: $main-component-padding;
+}
+
+button {
+  float: right;
+}

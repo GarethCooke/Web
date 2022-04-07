@@ -1,0 +1,21 @@
+<div>
+  <div class="color-component">
+    <div class="color-effect-tab">
+      <button *ngFor="let tab of tabs" id="{{ tab.id }}" mat-icon-button (click)="tabSelect(tab.id)" [ngClass]="{ 'color-effect-tab-selected': selectedId == tab.id }">
+        <mat-icon>{{ tab.icon }}</mat-icon>
+      </button>
+    </div>
+    <div class="color-effect">
+      <div class="color-effect-tab-item">
+        <mat-icon *ngIf="isSelected(null)" [@swipeComponent]="selectedId" id="power">power_off</mat-icon>
+        <color-picker
+          *ngIf="isSelected('color-picker')"
+          [@swipeComponent]="selectedId"
+          [color]="settingsService.settings && settingsService.settings.colour ? settingsService.settings.colour : null"
+          (color)="colourChange($event)"
+        ></color-picker>
+        <bb-beat-colours *ngIf="isSelected('bb-beat-colours')" [@swipeComponent]="selectedId"></bb-beat-colours>
+      </div>
+    </div>
+  </div>
+</div>

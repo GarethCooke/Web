@@ -1,0 +1,20 @@
+.eq-bar-universe {
+  height: 100%;
+  max-width: 60px;
+}
+
+#horiz-line {
+  stroke: white;
+}
+
+svg {
+  height: 90%;
+}
+
+p {
+  text-align: center;
+  font-family: DotMatrixBold;
+  font-size: 0.6em;
+}
+
+$colour-eq-bar: lighten(green, 30%);

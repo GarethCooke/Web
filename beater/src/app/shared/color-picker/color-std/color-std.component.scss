@@ -1,0 +1,70 @@
+@import './src/variables';
+
+.std-colours {
+  float: right;
+  margin-left: 1px;
+  margin-right: $component-padding;
+  margin-top: $component-padding;
+  margin-bottom: 1px;
+  width: 23px;
+  height: 23px;
+}
+
+.std-colour {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: groove;
+}
+
+.color-selected {
+  border-style: inset;
+  animation: shine 3s infinite;
+  animation-fill-mode: forwards;
+  animation-delay: 1s;
+}
+
+@keyframes shine {
+  0% {
+    opacity: 1;
+    top: 0%;
+    left: 0%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.01s;
+    transition-timing-function: ease;
+  }
+  50% {
+    opacity: 0.5;
+    top: 50%;
+    left: 50%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.01s;
+    transition-timing-function: ease;
+  }
+  100% {
+    opacity: 1;
+    top: 100%;
+    left: 100%;
+    transition-property: left, top, opacity;
+    transition-duration: 0.01s;
+    transition-timing-function: ease;
+  }
+}
+
+.color-selected:after {
+  animation: shine 3s ease-in-out infinite;
+  animation-fill-mode: forwards;
+  content: '';
+
+  top: -110%;
+  left: -210%;
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+  transform: rotate(30deg);
+
+  background: rgba(255, 255, 255, 0.13);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.13) 0%, rgba(255, 255, 255, 0.13) 77%, rgba(255, 255, 255, 0.5) 92%, rgba(255, 255, 255, 0) 100%);
+}

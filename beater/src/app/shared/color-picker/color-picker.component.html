@@ -1,0 +1,12 @@
+<div>
+  <div class="color-wrapper">
+    <color-palette [hue]="hue" [inputColor]="stdcolor" (color)="colorChange($event)" (colorSet)="fixColour($event)"></color-palette>
+    <color-slider [color]="hue" (colorChange)="hue = $event"></color-slider>
+  </div>
+  <div class="color-footer">
+    <div class="color-chosen" [ngStyle]="{ background: color }"></div>
+    <div class="colour-std">
+      <color-std (color)="setStdColor($event)" [selected]="color"></color-std>
+    </div>
+  </div>
+</div>

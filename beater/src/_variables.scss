@@ -1,0 +1,27 @@
+@use '~@angular/material' as mat;
+@import '~@angular/material/theming';
+
+$beatertheme-primary: mat.define-palette(mat.$indigo-palette);
+$beatertheme-accent: mat.define-palette(mat.$indigo-palette, A100, A400, A700);
+$beatertheme-warn: mat.define-palette(mat.$red-palette);
+$beatertheme-theme: mat.define-light-theme($beatertheme-primary, $beatertheme-accent, $beatertheme-warn);
+
+$primary: mat.get-color-from-palette($beatertheme-primary);
+$component-elevation: 3;
+$primary-light: ghostwhite;
+
+$tab-select-color: lightgray;
+$component-padding: 2px;
+$main-component-padding: 10px;
+$component-width: 400px;
+$component-input-width: 370px;
+$component-height: 330px;
+$component-tab-width: 50px;
+$tabbed-component-width: $component-width - $component-tab-width - 2 * $component-padding;
+
+$color-picker-width: 301px;
+
+.dropdown-dialog .mat-dialog-container {
+  padding: 2px;
+  margin: 2px;
+}

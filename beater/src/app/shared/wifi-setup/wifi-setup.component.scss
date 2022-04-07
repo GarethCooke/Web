@@ -1,0 +1,30 @@
+@import './src/variables';
+
+.wifi-setup-universe {
+  margin: $main-component-padding;
+}
+
+.wifi-connect-indicator {
+  color: lightgrey;
+}
+
+.selected-wifi {
+  float: right;
+}
+
+bb-wap-list {
+  display: block;
+  height: 185px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.wifi-input {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+button {
+  margin-right: $component-padding;
+}

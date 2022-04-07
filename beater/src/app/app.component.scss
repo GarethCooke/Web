@@ -1,0 +1,17 @@
+@import './src/variables';
+
+mat-toolbar {
+  background-color: $primary-light;
+}
+
+mat-card {
+  display: flex;
+  flex-wrap: wrap;
+  top: 10px;
+  background-color: $primary-light;
+  padding: 10px;
+  min-height: $component-width;
+}
+.active-link {
+  background-color: $tab-select-color;
+}

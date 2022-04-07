@@ -1,0 +1,21 @@
+<div class="graphic-eq-universe" *ngIf="beaterEvent">
+  <mat-drawer-container autosize>
+    <mat-drawer #drawer mode="side">
+      <bb-beat-detect-settings></bb-beat-detect-settings>
+    </mat-drawer>
+    <div class="graphic-eq-display">
+      <div>
+        <div>
+          <bb-equaliser-bar *ngFor="let freq of beaterEvent.frequencies" [freqdata]="freq"></bb-equaliser-bar>
+        </div>
+      </div>
+    </div>
+  </mat-drawer-container>
+  <div>
+    <button mat-mini-fab color="primary" (click)="drawer.toggle()"><mat-icon>settings</mat-icon></button>
+    <div class="beat-marker">
+      BEAT
+      <div [ngClass]="{ 'led-red-on': beaterEvent.beatDetected, 'led-red-off': !beaterEvent.beatDetected }"></div>
+    </div>
+  </div>
+</div>

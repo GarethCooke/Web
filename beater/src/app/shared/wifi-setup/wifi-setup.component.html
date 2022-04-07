@@ -1,0 +1,23 @@
+<div class="wifi-setup-universe">
+  <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <button mat-mini-fab color="primary" [disabled]="wifi && wifi.wap && (!wifi.wap.secured || (wifi.password && wifi.password.length)) ? null : true">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary" type="button" (click)="refresh(form)">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <div style="float: right">
+      <mat-icon class="selected-wifi wifi-connect-indicator">wifi_off</mat-icon>
+      <div>
+        <label class="selected-wifi" *ngIf="wifiinfo">{{ [wifiinfo.selected] }}</label>
+      </div>
+    </div>
+    <bb-wap-list *ngIf="wifiinfo && wifiinfo.networks" [waplist]="wifiinfo.networks" (wapChange)="wifi.wap = $event; wifi.password = ''"></bb-wap-list>
+    <div class="wifi-input" *ngIf="wifi && wifi.wap && wifi.wap.secured">
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input id="password" matInput type="password" required [(ngModel)]="wifi.password" name="password" #password="ngModel" />
+      </mat-form-field>
+    </div>
+  </form>
+</div>

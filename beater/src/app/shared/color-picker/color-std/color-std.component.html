@@ -1,0 +1,12 @@
+<div class="std-colours" *ngFor="let colour of colours">
+  <div
+    [ngClass]="{ 'std-colour': true, 'color-selected': selected == colour }"
+    [ngStyle]="
+      (selected == colour && {
+        background: colour
+      }) || { background: colour }
+    "
+    #parameter
+    (mousedown)="onMouseDown($event, parameter)"
+  ></div>
+</div>

@@ -1,0 +1,32 @@
+<div style="position: absolute">
+  <table class="bb-table">
+    <thead class="bb-thead">
+      <tr class="bb-tr">
+        <th class="bb-th wapname">Name</th>
+        <th class="bb-th" style="width: 60px; display: inline-flexbox; text-align: center; padding-right: 5px">Strength</th>
+        <th class="bb-th" style="width: 60px; position: relative; right: 0; display: block">Security</th>
+      </tr>
+    </thead>
+    <tbody class="bb-tbody">
+      <tr
+        class="bb-tr"
+        *ngFor="let wap of waplist"
+        (click)="select(wap.name)"
+        attr.data-SSID="{{ wap.name }}"
+        [ngClass]="{
+          'selected-wap': selectedwap && wap.name === selectedwap.name
+        }"
+      >
+        <td class="bb-td wapname">
+          {{ wap.name }}
+        </td>
+        <td class="bb-td" style="width: 60px; display: inline-flexbox; text-align: center; padding-right: 5px">
+          <meter style="width: 100%" min="0" low="40" max="100" value="{{ wap.strength }}"></meter>
+        </td>
+        <td class="bb-td" style="width: 40px; position: relative; right: 0px">
+          <mat-icon>{{ wap.secured ? 'lock' : 'lock_open' }}</mat-icon>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

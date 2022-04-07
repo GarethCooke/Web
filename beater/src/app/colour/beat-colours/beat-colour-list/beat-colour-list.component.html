@@ -1,0 +1,18 @@
+<div style="position: absolute">
+  <table class="bb-table">
+    <thead class="bb-thead">
+      <tr class="bb-tr">
+        <th class="bb-th">Beat Colour Definition</th>
+      </tr>
+    </thead>
+    <tbody cdkDropList class="bb-tbody" (cdkDropListDropped)="drop($event)">
+      <tr cdkDrag class="bb-tr" [cdkDragStartDelay]="100" *ngFor="let cyclecolour of settingsService.settings.cyclecolours; let ndx = index">
+        <td class="bb-td">
+          <div class="drop-placeholder" *cdkDragPlaceholder></div>
+          <bb-beat-period [beatdata]="cyclecolour"></bb-beat-period>
+          <button mat-mini-fab color="primary" (click)="remove(ndx)"><mat-icon>delete</mat-icon></button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

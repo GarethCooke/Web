@@ -1,0 +1,85 @@
+{
+  "networkdata": {
+    "selected": "garet",
+    "connected": "false",
+    "networks": [
+      {
+        "name": "garet",
+        "strength": "80",
+        "secured": true
+      },
+      {
+        "name": "cooke",
+        "strength": "60",
+        "secured": false
+      },
+      {
+        "name": "pinna",
+        "strength": "100",
+        "secured": true
+      },
+      {
+        "name": "roe",
+        "strength": "1",
+        "secured": true
+      },
+      {
+        "name": "jones",
+        "strength": "20",
+        "secured": true
+      },
+      {
+        "name": "trebble",
+        "strength": "60",
+        "secured": false
+      },
+      {
+        "name": "FisherNet",
+        "strength": "80",
+        "secured": true
+      },
+      {
+        "name": "Travesty",
+        "strength": "0",
+        "secured": true
+      }
+    ]
+  },
+  "networkset": {
+    "SSID": "cooke",
+    "pwd": ""
+  },
+  "settings": {
+    "power": true,
+    "lightsetting": "constant",
+    "colour": "#2A4FB4",
+    "filter": 94,
+    "beatdebounce": 30,
+    "gainlow": 80,
+    "gainincrement": 100,
+    "gaindecrement": 10,
+    "scrollspeed": 65,
+    "message": "The world is my oyster!",
+    "messagescroll": true,
+    "beatdecay": 100,
+    "minbeatband": 3,
+    "maxbeatband": 3,
+    "cyclecolours": [
+      {
+        "colour": "#D8C387",
+        "durationtype": "beat",
+        "duration": 2
+      },
+      {
+        "colour": "#B01616",
+        "duration": 1,
+        "durationtype": "beat"
+      },
+      {
+        "colour": "#00FE3F",
+        "durationtype": "time",
+        "beatdecay": 136
+      }
+    ]
+  }
+}

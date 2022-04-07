@@ -1,0 +1,26 @@
+@import './src/variables';
+
+.color-wrapper {
+  width: $color-picker-width;
+  height: 250px;
+}
+
+.color-footer {
+  width: $color-picker-width;
+}
+
+.colour-std {
+  float: right;
+  width: 250px;
+}
+
+.color-chosen {
+  float: left;
+  margin-top: $component-padding;
+  width: 49px;
+  height: 49px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: grey;
+}

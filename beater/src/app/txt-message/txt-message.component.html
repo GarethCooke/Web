@@ -1,0 +1,24 @@
+<div class="txt-msg-universe" *ngIf="settingsService && settingsService.settings">
+  <div>
+    <div class="msb-box">
+      <!-- <ng-marquee duration="{{ (settingsService.settings.messagescroll && settingsService.settings.scrollspeed > 0 ? 101 - settingsService.settings.scrollspeed : 0) / 2 + 's' }}">
+        <div class="msgtxt marquee">
+          <span>{{ settingsService.settings.message }}</span>
+        </div>
+      </ng-marquee> -->
+    </div>
+  </div>
+  <div>
+    <mat-form-field>
+      <mat-label>Message</mat-label>
+      <input matInput type="text" placeholder="Hello" [(ngModel)]="settingsService.settings.message" (ngModelChange)="saveChanges()" />
+    </mat-form-field>
+    <div class="slidecontrols">
+      <mat-label>Beat</mat-label><mat-slide-toggle color="primary" [(ngModel)]="settingsService.settings.messagescroll" (ngModelChange)="saveChanges()">Scroll</mat-slide-toggle>
+      <div class="scrollspeed">
+        <mat-label>Scroll speed</mat-label>
+        <mat-slider color="primary" min="1" max="100" thumbLabel step="1" tickInterval="10" [(ngModel)]="settingsService.settings.scrollspeed" (ngModelChange)="saveChanges()"></mat-slider>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+@import './src/variables';
+
+.bb-tbody {
+  height: 150px;
+}
+
+.bb-table {
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: $component-input-width;
+}
+
+.wapname {
+  width: 202px;
+  position: relative;
+  left: 0;
+}
+
+mat-icon {
+  margin-left: 5px;
+  height: 100%;
+  font-size: 1em;
+}

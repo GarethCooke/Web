@@ -1,0 +1,63 @@
+@use '~@angular/material' as mat;
+@import '~@angular/material/theming';
+@import './src/variables';
+
+.color-component {
+  left: 0;
+  float: left;
+  position: relative;
+  width: $component-width;
+  overflow: hidden;
+  display: block;
+  padding: $component-padding;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  height: $component-height;
+  @include mat.elevation($component-elevation);
+}
+
+.color-effect-tab {
+  position: absolute;
+  top: $component-padding;
+  display: block;
+  width: $component-tab-width;
+  height: 200px;
+  border: none;
+  background-color: $primary-light;
+}
+
+.color-effect-tab-selected {
+  background-color: $tab-select-color;
+}
+
+#power,
+.color-effect-tab-item {
+  position: absolute;
+  top: $component-padding;
+  left: 0px;
+  width: $tabbed-component-width;
+  height: 100%;
+}
+
+#power {
+  font-size: 128px;
+  color: $tab-select-color;
+  display: flex;
+  justify-content: flex-end;
+}
+
+bb-beat-colours,
+color-picker {
+  position: absolute;
+  display: block;
+  right: 0px;
+}
+
+.color-effect {
+  position: absolute;
+  display: block;
+  overflow: hidden;
+  width: $tabbed-component-width;
+  height: $component-height;
+  right: $component-padding;
+}

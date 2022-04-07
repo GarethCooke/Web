@@ -1,0 +1,24 @@
+<div class="eq-bar-universe" *ngIf="freqdata">
+  <svg width="100%" height="100%">
+    <pattern id="pattern-bar" x="0" y="0" patternUnits="userSpaceOnUse" width="10" height="2" viewBox="0 0 40 10">
+      <path id="horiz-line" d="M0 0 H100" stroke-width="15" fill="none"></path>
+      <use x="0" y="0" href="#horiz-line"></use>
+    </pattern>
+
+    <mask id="pattern-mask" x="0" y="0" width="1" height="1">
+      <rect x="0" y="0" width="500" height="500" fill="url(#pattern-bar)" />
+    </mask>
+
+    <!-- green for main display top -->
+    <rect class="gr-eq-bar" x="0" attr.y="{{ 100 - (freqdata.value * 100) / 255 + '%' }}" width="100%" attr.height="{{ (freqdata.value * 100) / 255 + '%' }}" mask="url(#pattern-mask)" fill="rgb(48, 252, 3)" />
+    <rect x="0" y="20%" width="100%" attr.height="{{ Math.max(100 - (freqdata.value * 100) / 255 - 20, 0) + '%' }}" mask="url(#pattern-mask)" fill="rgb(48, 252, 3)" opacity="4%" />
+
+    <!-- red at top -->
+    <rect class="gr-eq-bar" x="0" attr.y="{{ 100 - (freqdata.value * 100) / 255 + '%' }}" width="100%" attr.height="{{ Math.max((freqdata.value * 100) / 255 - 80, 0) + '%' }}" mask="url(#pattern-mask)" fill="red" />
+    <rect x="0" y="0%" width="100%" attr.height="{{ Math.min(100 - (freqdata.value * 100) / 255, 20) + '%' }}" mask="url(#pattern-mask)" fill="red" opacity="4%" />
+
+    <!-- yellow for peak -->
+    <!-- <rect class="gr-eq-peak" x="0" attr.y="{{ 100 - (freqdata.value * 100/255) + '%' }}" width="100%" height="3px" mask="url(#pattern-mask)" fill="yellow" /> -->
+  </svg>
+  <p>{{ freqdata.band }}</p>
+</div>
