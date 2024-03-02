@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'lib-EELShared',
+  standalone: true,
+  imports: [],
   template: `
     <p>
       eelshared works!
     </p>
   `,
-  styles: [
-  ]
+  styles: ``
 })
-export class EELSharedComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class EELSharedComponent {
 
 }

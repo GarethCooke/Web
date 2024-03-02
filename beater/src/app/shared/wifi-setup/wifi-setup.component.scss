@@ -1,10 +1,14 @@
-@import './src/variables';
+@import '../../../variables';
 
 .wifi-setup-universe {
   margin: $main-component-padding;
 }
 
 .wifi-connect-indicator {
+  color: black;
+}
+
+.wifi-noconnect-indicator {
   color: lightgrey;
 }
 

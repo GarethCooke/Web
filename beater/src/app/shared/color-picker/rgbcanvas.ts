@@ -1,5 +1,4 @@
-import { ColorPickerComponent } from './color-picker.component';
-import * as Color from 'color';
+import Color from 'color';
 
 export class RGBCanvas {
   private static isApproximate(test1: number, test2: number, test3: number, col1: number, col2: number, col3: number, prev3: number, accuracy: number): boolean {
@@ -14,7 +13,7 @@ export class RGBCanvas {
     return false;
   }
 
-  static findColorPos(colour: string, img: ImageData, accuracy: number): [number, number] {
+  static findColorPos(colour: string, img: ImageData, accuracy: number): [number, number] | null {
     const nRGB: number[] = Color(colour).array();
     if (nRGB.length >= 3) {
       const imageData: Uint8ClampedArray = img.data;

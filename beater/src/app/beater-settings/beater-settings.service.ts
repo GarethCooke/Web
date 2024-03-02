@@ -6,15 +6,15 @@ import { IBeatCycleColour } from './beat-cycle-colour';
 import { IBeaterSettings } from './beater-settings';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BeaterSettingsService {
   private url = 'api/settings';
-  settings: IBeaterSettings;
-  private errorMessage: string;
+  settings: IBeaterSettings | undefined = undefined;
+  private errorMessage: string = '';
 
   constructor(private http: HttpClient) {
-    this.refreshSettings({ complete: () => { } });
+    this.refreshSettings({ complete: () => {} });
   }
 
   getSettings(): Observable<IBeaterSettings> {
@@ -23,7 +23,7 @@ export class BeaterSettingsService {
 
   saveSettings(): void {
     this.http.post<IBeaterSettings>(this.url, this.settings).subscribe(
-      (res) => { },
+      (res) => {},
       (err) => console.log(err)
     );
   }
@@ -32,25 +32,24 @@ export class BeaterSettingsService {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
       errorMessage = `An error occurred: ${err.error.message}`;
-    }
-    else {
+    } else {
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
     console.error(errorMessage);
-    return throwError(errorMessage);
+    return throwError(() => errorMessage);
   }
 
   refreshSettings(completeObserver: CompletionObserver<IBeaterSettings>): void {
     this.getSettings().subscribe({
-      next: settings => {
+      next: (settings) => {
         this.settings = settings;
       },
-      error: err => this.errorMessage = err,
-      complete: () => completeObserver.complete()
+      error: (err) => (this.errorMessage = err),
+      complete: () => completeObserver.complete(),
     });
   }
 
   add(beatdata: IBeatCycleColour): void {
-    this.settings.cyclecolours.push(beatdata);
+    this.settings?.cyclecolours.push(beatdata);
   }
 }

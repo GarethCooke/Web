@@ -7,16 +7,17 @@
       <mat-icon>refresh</mat-icon>
     </button>
     <div style="float: right">
-      <mat-icon class="selected-wifi wifi-connect-indicator">wifi_off</mat-icon>
+      <mat-icon class="selected-wifi wifi-noconnect-indicator" *ngIf="!wifiinfo || !wifiinfo.connected">wifi_off</mat-icon>
+      <mat-icon class="selected-wifi wifi-connect-indicator" *ngIf="wifiinfo?.connected">wifi_on</mat-icon>
       <div>
         <label class="selected-wifi" *ngIf="wifiinfo">{{ [wifiinfo.selected] }}</label>
       </div>
     </div>
-    <bb-wap-list *ngIf="wifiinfo && wifiinfo.networks" [waplist]="wifiinfo.networks" (wapChange)="wifi.wap = $event; wifi.password = ''"></bb-wap-list>
+    <bb-wap-list *ngIf="wifiinfo && wifiinfo?.networks" [waplist]="wifiinfo.networks" (wapChange)="wifi.wap = $event; wifi.password = ''"></bb-wap-list>
     <div class="wifi-input" *ngIf="wifi && wifi.wap && wifi.wap.secured">
       <mat-form-field appearance="fill">
         <mat-label>Password</mat-label>
-        <input id="password" matInput type="password" required [(ngModel)]="wifi.password" name="password" #password="ngModel" />
+        <input id="password" matInput type="password" required [(ngModel)]="wifi.password" name="password" #password="ngModel" ngDefaultControl />
       </mat-form-field>
     </div>
   </form>

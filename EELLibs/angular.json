@@ -27,25 +27,14 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/eelshared/src/test.ts",
             "tsConfig": "projects/eelshared/tsconfig.spec.json",
-            "karmaConfig": "projects/eelshared/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/eelshared/**/*.ts",
-              "projects/eelshared/**/*.html"
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
             ]
           }
         }
       }
     }
-  },
-  "defaultProject": "EELShared",
-  "cli": {
-    "defaultCollection": "@angular-eslint/schematics"
   }
 }

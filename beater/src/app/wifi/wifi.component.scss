@@ -1,6 +1,5 @@
-@use '~@angular/material' as mat;
-@import '~@angular/material/theming';
-@import './src/variables';
+@use '@angular/material' as mat;
+@import '../../variables';
 
 div {
   padding: $component-padding;

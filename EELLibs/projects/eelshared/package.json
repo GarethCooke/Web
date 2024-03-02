@@ -1,20 +1,21 @@
 {
   "name": "eelshared",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "scripts": {
-    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
-    "copy:collection": "cp schematics/collection.json ../../dist/eelshared/schematics/collection.json",
+    "build": "tsc -p tsconfig.schematics.json",
+    "copy:collection": "copyfiles schematics/*/schema.json schematics/*/files/** schematics/collection.json ../../dist/eelshared/",
     "postbuild": "npm run copy:collection"
   },
   "peerDependencies": {
-    "@angular/common": "^12.1.0-",
-    "@angular/core": "^12.1.0-"
+    "@angular/common": "^17.2.0",
+    "@angular/core": "^17.2.0"
   },
   "dependencies": {
-    "tslib": "^2.2.0"
+    "tslib": "^2.3.0"
   },
   "schematics": "./schematics/collection.json",
   "ng-add": {
-    "save": "dependencies"
-  }
+    "save": "devDependencies"
+  },
+  "sideEffects": false
 }

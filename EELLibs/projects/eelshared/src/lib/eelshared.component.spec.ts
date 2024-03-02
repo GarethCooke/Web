@@ -8,12 +8,10 @@ describe('EELSharedComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EELSharedComponent ]
+      imports: [EELSharedComponent]
     })
     .compileComponents();
-  });
-
-  beforeEach(() => {
+    
     fixture = TestBed.createComponent(EELSharedComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

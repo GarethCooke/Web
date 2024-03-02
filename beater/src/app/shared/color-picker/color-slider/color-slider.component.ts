@@ -1,75 +1,66 @@
-/* eslint-disable semi */
 import { OnChanges, SimpleChanges } from '@angular/core';
-import {
-  Component,
-  ViewChild,
-  ElementRef,
-  AfterViewInit,
-  Output,
-  HostListener,
-  EventEmitter,
-  Input,
-} from '@angular/core';
+import { Component, ViewChild, ElementRef, AfterViewInit, Output, HostListener, EventEmitter, Input } from '@angular/core';
 import { RGBCanvas } from '../rgbcanvas';
+import Color from 'color';
 
 @Component({
   selector: 'color-slider',
+  standalone: true,
+  imports: [],
   templateUrl: './color-slider.component.html',
   styleUrls: ['./color-slider.component.scss'],
 })
 export class ColorSliderComponent implements AfterViewInit, OnChanges {
   @ViewChild('canvas')
-  canvas: ElementRef<HTMLCanvasElement>;
+  canvas: ElementRef<HTMLCanvasElement> | null = null;
 
   @Output()
   colorChange: EventEmitter<string> = new EventEmitter();
 
   @Input()
-  color: string;
+  color: string = '';
 
-  private Color = require('color');
-  private ctx: CanvasRenderingContext2D;
+  private ctx: CanvasRenderingContext2D | null = null;
   private mousedown = false;
-  private selectedHeight: number;
+  private selectedHeight: number | undefined = undefined;
 
   ngAfterViewInit(): void {
     this.draw();
   }
 
   draw(): void {
-    if (!this.canvas || !this.canvas.nativeElement)
-      return;
+    if (!this.canvas || !this.canvas.nativeElement) return;
     if (!this.ctx) {
-      this.ctx = this.canvas.nativeElement.getContext('2d');
+      this.ctx = this.canvas.nativeElement.getContext('2d', { willReadFrequently: true });
     }
     const width = this.canvas.nativeElement.width;
     const height = this.canvas.nativeElement.height;
 
-    this.ctx.clearRect(0, 0, width, height);
+    this.ctx!.clearRect(0, 0, width, height);
 
-    const gradient = this.ctx.createLinearGradient(0, 0, 0, height);
-    gradient.addColorStop(0, this.Color.rgb(255, 0, 0));
-    gradient.addColorStop(0.17, this.Color.rgb(255, 255, 0));
-    gradient.addColorStop(0.34, this.Color.rgb(0, 255, 0));
-    gradient.addColorStop(0.51, this.Color.rgb(0, 255, 255));
-    gradient.addColorStop(0.68, this.Color.rgb(0, 0, 255));
-    gradient.addColorStop(0.85, this.Color.rgb(255, 0, 255));
-    gradient.addColorStop(1, this.Color.rgb(255, 0, 0));
+    const gradient = this.ctx!.createLinearGradient(0, 0, 0, height);
+    gradient.addColorStop(0, Color.rgb(255, 0, 0).string());
+    gradient.addColorStop(0.17, Color.rgb(255, 255, 0).string());
+    gradient.addColorStop(0.34, Color.rgb(0, 255, 0).string());
+    gradient.addColorStop(0.51, Color.rgb(0, 255, 255).string());
+    gradient.addColorStop(0.68, Color.rgb(0, 0, 255).string());
+    gradient.addColorStop(0.85, Color.rgb(255, 0, 255).string());
+    gradient.addColorStop(1, Color.rgb(255, 0, 0).string());
 
-    this.ctx.beginPath();
-    this.ctx.rect(0, 0, width, height);
+    this.ctx!.beginPath();
+    this.ctx!.rect(0, 0, width, height);
 
-    this.ctx.fillStyle = gradient;
-    this.ctx.fill();
-    this.ctx.closePath();
+    this.ctx!.fillStyle = gradient;
+    this.ctx!.fill();
+    this.ctx!.closePath();
 
     if (this.selectedHeight != undefined) {
-      this.ctx.beginPath();
-      this.ctx.strokeStyle = 'white';
-      this.ctx.lineWidth = 5;
-      this.ctx.rect(0, this.selectedHeight - 5, width, 10);
-      this.ctx.stroke();
-      this.ctx.closePath();
+      this.ctx!.beginPath();
+      this.ctx!.strokeStyle = 'white';
+      this.ctx!.lineWidth = 5;
+      this.ctx!.rect(0, this.selectedHeight - 5, width, 10);
+      this.ctx!.stroke();
+      this.ctx!.closePath();
     }
   }
 
@@ -99,30 +90,32 @@ export class ColorSliderComponent implements AfterViewInit, OnChanges {
   }
 
   getColorAtPosition(x: number, y: number): string {
-    const imageData = this.ctx.getImageData(10, y, 1, 1).data;
-    let color = this.Color.rgb(imageData[0], imageData[1], imageData[2]);
-    return color;
+    if (this.ctx) {
+      const imageData = this.ctx.getImageData(10, y, 1, 1).data;
+      let color = Color.rgb(imageData[0], imageData[1], imageData[2]).string();
+      return color;
+    }
+    return '';
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.color && !this.mousedown) {
-      if (!this.mousedown) {
-        this.selectedHeight = changes.color.currentValue == this.Color.rgb(255, 255, 255) ? undefined : this.findColorPosition(changes.color.currentValue);
+    if (changes['color'] && !this.mousedown) {
+      if (!this.mousedown && this.selectedHeight) {
+        this.selectedHeight = changes['color'].currentValue == Color.rgb(255, 255, 255) ? undefined : this.findColorPosition(changes['color'].currentValue) || undefined;
         this.draw();
       }
     }
   }
 
-  findColorPosition(colour: string): number {
-    if (this.canvas && this.canvas.nativeElement) {
+  findColorPosition(colour: string): number | null {
+    if (this.canvas && this.canvas.nativeElement && this.ctx) {
       const height = this.canvas.nativeElement.height;
       const imageData: ImageData = this.ctx.getImageData(0, 0, 1, height);
-      let findColor = this.Color(colour);
-      let findHSL = this.Color(colour);
-      let found = RGBCanvas.findColorPos(this.Color.hsl(findHSL.hue(), 100, 50), imageData, 10);
-      if (found)
-        return found[1];
-      return null;
+      let findColor = Color(colour);
+      let findHSL = Color(colour);
+      let found = RGBCanvas.findColorPos(Color.hsl(findHSL.hue(), 100, 50).string(), imageData, 10);
+      if (found) return found[1];
     }
+    return null;
   }
 }

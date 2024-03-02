@@ -1,7 +1,7 @@
 {
   "networkdata": {
     "selected": "garet",
-    "connected": "false",
+    "connected": false,
     "networks": [
       {
         "name": "garet",
@@ -46,13 +46,13 @@
     ]
   },
   "networkset": {
-    "SSID": "cooke",
-    "pwd": ""
+    "SSID": "pinna",
+    "pwd": "dsadsa"
   },
   "settings": {
     "power": true,
     "lightsetting": "constant",
-    "colour": "#2A4FB4",
+    "colour": "#61A861",
     "filter": 94,
     "beatdebounce": 30,
     "gainlow": 80,
@@ -68,7 +68,7 @@
       {
         "colour": "#D8C387",
         "durationtype": "beat",
-        "duration": 2
+        "duration": 1
       },
       {
         "colour": "#B01616",
