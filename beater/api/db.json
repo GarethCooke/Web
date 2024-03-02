@@ -51,19 +51,19 @@
   },
   "settings": {
     "power": true,
-    "lightsetting": "constant",
+    "lightsetting": "beat",
     "colour": "#61A861",
     "filter": 94,
     "beatdebounce": 30,
     "gainlow": 80,
     "gainincrement": 100,
     "gaindecrement": 10,
-    "scrollspeed": 65,
+    "scrollspeed": "33",
     "message": "The world is my oyster!",
     "messagescroll": true,
     "beatdecay": 100,
-    "minbeatband": 3,
-    "maxbeatband": 3,
+    "minbeatband": 1,
+    "maxbeatband": 1,
     "cyclecolours": [
       {
         "colour": "#D8C387",
@@ -73,12 +73,13 @@
       {
         "colour": "#B01616",
         "duration": 1,
-        "durationtype": "beat"
+        "durationtype": "beat",
+        "beatdecay": "183"
       },
       {
         "colour": "#00FE3F",
         "durationtype": "time",
-        "beatdecay": 136
+        "beatdecay": "77"
       }
     ]
   }

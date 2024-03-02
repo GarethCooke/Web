@@ -2,10 +2,6 @@ const express = require("express");
 const parser = require("body-parser");
 const app = express();
 const EventEmitter = require("events");
-const {
-  SourceMapGenerator,
-} = require("@angular/compiler/src/output/source_map");
-
 const Stream = new EventEmitter();
 
 app.use(parser.json());

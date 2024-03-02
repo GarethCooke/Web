@@ -1,13 +1,17 @@
-/* eslint-disable semi */
 import { Component } from '@angular/core';
-import { IBeaterSettings } from './beater-settings/beater-settings';
+import { RouterModule } from '@angular/router';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 
 @Component({
-  selector: 'bb-root',
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatCardModule],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
   title = 'beater';
-  settings: IBeaterSettings;
 }

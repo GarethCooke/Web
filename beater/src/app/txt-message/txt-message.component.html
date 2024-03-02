@@ -11,13 +11,13 @@
   <div>
     <mat-form-field>
       <mat-label>Message</mat-label>
-      <input matInput type="text" placeholder="Hello" [(ngModel)]="settingsService.settings.message" (ngModelChange)="saveChanges()" />
+      <input matInput type="text" placeholder="Hello" ngDefaultControl [(ngModel)]="settingsService.settings.message" (ngModelChange)="saveChanges()" />
     </mat-form-field>
     <div class="slidecontrols">
-      <mat-label>Beat</mat-label><mat-slide-toggle color="primary" [(ngModel)]="settingsService.settings.messagescroll" (ngModelChange)="saveChanges()">Scroll</mat-slide-toggle>
+      <mat-label>Beat</mat-label><mat-slide-toggle color="primary" ngDefaultControl [(ngModel)]="settingsService.settings.messagescroll" (ngModelChange)="saveChanges()">Scroll</mat-slide-toggle>
       <div class="scrollspeed">
         <mat-label>Scroll speed</mat-label>
-        <mat-slider color="primary" min="1" max="100" thumbLabel step="1" tickInterval="10" [(ngModel)]="settingsService.settings.scrollspeed" (ngModelChange)="saveChanges()"></mat-slider>
+        <mat-slider color="primary" min="1" max="100" thumbLabel step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.scrollspeed" (ngModelChange)="saveChanges()"> <input matSliderThumb /></mat-slider>
       </div>
     </div>
   </div>
