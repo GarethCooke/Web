@@ -6,7 +6,9 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build-all": "npm run build; cd projects/eelshared/; npm run build; cd ../..; npm link ./dist/eelshared/",
+    "publish": "npm publish ./dist/eelshared/"
   },
   "private": true,
   "dependencies": {
