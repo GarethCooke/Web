@@ -7,7 +7,6 @@ th {
 bb-beat-period {
   width: $component-input-width - $component-tab-width - $component-padding * 2 - 45px;
   display: flex;
-  overflow-x: hidden;
 }
 
 .bb-tbody {

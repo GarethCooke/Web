@@ -1,11 +1,10 @@
 <div class="txt-msg-universe" *ngIf="settingsService && settingsService.settings">
   <div>
     <div class="msb-box">
-      <!-- <ng-marquee duration="{{ (settingsService.settings.messagescroll && settingsService.settings.scrollspeed > 0 ? 101 - settingsService.settings.scrollspeed : 0) / 2 + 's' }}">
-        <div class="msgtxt marquee">
-          <span>{{ settingsService.settings.message }}</span>
-        </div>
-      </ng-marquee> -->
+      <marquee>
+        <!-- <div scrolldelay="{{ (settingsService.settings.messagescroll && settingsService.settings.scrollspeed > 0 ? 101 - settingsService.settings.scrollspeed : 0) / 2 + 's' }}" behavior="loop"> -->
+        <div class="msgtxt">{{ settingsService.settings.message }}</div>
+      </marquee>
     </div>
   </div>
   <div>
@@ -17,7 +16,7 @@
       <mat-label>Beat</mat-label><mat-slide-toggle color="primary" ngDefaultControl [(ngModel)]="settingsService.settings.messagescroll" (ngModelChange)="saveChanges()">Scroll</mat-slide-toggle>
       <div class="scrollspeed">
         <mat-label>Scroll speed</mat-label>
-        <mat-slider color="primary" min="1" max="100" thumbLabel step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.scrollspeed" (ngModelChange)="saveChanges()"> <input matSliderThumb /></mat-slider>
+        <mat-slider thumbLabel discrete color="primary" min="1" max="100" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.scrollspeed" (change)="saveChanges()"> <input matSliderThumb /></mat-slider>
       </div>
     </div>
   </div>

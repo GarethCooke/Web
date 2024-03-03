@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, SimpleChange } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatFormField } from '@angular/material/form-field';

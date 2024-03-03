@@ -17,8 +17,8 @@ mat-label {
 mat-slider {
   min-width: 50px;
   width: 100%;
-  margin-left: $component-padding;
-  margin-right: $main-component-padding;
+  margin-left: $component-padding + 20px;
+  margin-right: $main-component-padding + 20px;
 }
 
 .controls {

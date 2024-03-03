@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
 @import '../../variables';
+@import '../../assets/font/DOTMatrix.css';
 
 .txt-msg-universe {
   padding: $component-padding;
@@ -18,17 +19,16 @@
   padding: $main-component-padding;
 }
 
-input,
 .msgtxt {
   position: relative;
   display: flex;
   white-space: nowrap;
-  font-family: DotMatrix;
   align-items: center;
   width: 100%;
 }
 
 .msgtxt {
+  font-family: DotMatrix;
   height: 90px;
   font-size: 80px;
 }
@@ -37,6 +37,7 @@ input,
   border-style: inset;
   color: red;
   background-color: lighten(black, 10%);
+  overflow-x: clip;
 }
 
 .slidecontrols {
@@ -71,8 +72,6 @@ mat-slide-toggle {
 }
 
 mat-slider {
-  position: absolute;
-  display: block;
   float: right;
   right: 0px;
   width: 42%;

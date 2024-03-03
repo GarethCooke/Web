@@ -2,31 +2,44 @@
   <mat-grid-list cols="10" rowHeight="8:10">
     <mat-grid-tile colspan="3"> <mat-label>Filter</mat-label> </mat-grid-tile>
     <mat-grid-tile colspan="7">
-      <mat-slider color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.filter" (ngModelChange)="settingsService.saveSettings()"> <input matSliderThumb /></mat-slider>
+      <mat-slider thumbLabel discrete color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.filter" (change)="settingsService.saveSettings()">
+        <input matSliderThumb
+      /></mat-slider>
     </mat-grid-tile>
     <mat-grid-tile colspan="3"> <mat-label>Debounce</mat-label> </mat-grid-tile>
     <mat-grid-tile colspan="7">
-      <mat-slider color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.beatdebounce" (ngModelChange)="settingsService.saveSettings()"> <input matSliderThumb /></mat-slider>
+      <mat-slider thumbLabel discrete color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.beatdebounce" (change)="settingsService.saveSettings()">
+        <input matSliderThumb
+      /></mat-slider>
     </mat-grid-tile>
     <mat-grid-tile colspan="3"> <mat-label>Gain low</mat-label> </mat-grid-tile>
     <mat-grid-tile colspan="7">
-      <mat-slider color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.gainlow" (ngModelChange)="settingsService.saveSettings()"> <input matSliderThumb /></mat-slider>
+      <mat-slider thumbLabel discrete color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.gainlow" (change)="settingsService.saveSettings()">
+        <input matSliderThumb
+      /></mat-slider>
     </mat-grid-tile>
     <mat-grid-tile colspan="3"> <mat-label>Gain inc</mat-label> </mat-grid-tile>
     <mat-grid-tile colspan="7">
-      <mat-slider color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.gainincrement" (ngModelChange)="settingsService.saveSettings()"> <input matSliderThumb /></mat-slider>
+      <mat-slider thumbLabel discrete color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.gainincrement" (change)="settingsService.saveSettings()">
+        <input matSliderThumb
+      /></mat-slider>
     </mat-grid-tile>
     <mat-grid-tile colspan="3"> <mat-label>Gain dec</mat-label> </mat-grid-tile>
     <mat-grid-tile colspan="7">
-      <mat-slider color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.gaindecrement" (ngModelChange)="settingsService.saveSettings()"> <input matSliderThumb /></mat-slider>
+      <mat-slider thumbLabel discrete color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.gaindecrement" (change)="settingsService.saveSettings()">
+        <input matSliderThumb
+      /></mat-slider>
     </mat-grid-tile>
     <mat-grid-tile colspan="3"> <mat-label>Decay</mat-label> </mat-grid-tile>
     <mat-grid-tile colspan="7">
-      <mat-slider color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.beatdecay" (ngModelChange)="settingsService.saveSettings()"> <input matSliderThumb /></mat-slider>
+      <mat-slider thumbLabel discrete color="primary" min="1" max="150" step="1" tickInterval="10" ngDefaultControl [(ngModel)]="settingsService.settings.beatdecay" (change)="settingsService.saveSettings()">
+        <input matSliderThumb
+      /></mat-slider>
     </mat-grid-tile>
     <mat-grid-tile colspan="3"> <mat-label>Min band</mat-label> </mat-grid-tile>
     <mat-grid-tile colspan="7">
       <mat-slider
+        thumbLabel
         color="primary"
         min="1"
         max="7"
@@ -34,7 +47,7 @@
         tickInterval="1"
         ngDefaultControl
         [(ngModel)]="settingsService.settings.minbeatband"
-        (ngModelChange)="settingsService.settings.maxbeatband = Math.max(settingsService.settings.minbeatband, settingsService.settings.maxbeatband); settingsService.saveSettings()"
+        (change)="settingsService.settings.maxbeatband = Math.max(settingsService.settings.minbeatband, settingsService.settings.maxbeatband); settingsService.saveSettings()"
       >
         <input matSliderThumb />
       </mat-slider>
@@ -49,7 +62,7 @@
         tickInterval="1"
         ngDefaultControl
         [(ngModel)]="settingsService.settings.maxbeatband"
-        (ngModelChange)="settingsService.settings.minbeatband = Math.min(settingsService.settings.minbeatband, settingsService.settings.maxbeatband); settingsService.saveSettings()"
+        (change)="settingsService.settings.minbeatband = Math.min(settingsService.settings.minbeatband, settingsService.settings.maxbeatband); settingsService.saveSettings()"
       >
         <input matSliderThumb />
       </mat-slider>

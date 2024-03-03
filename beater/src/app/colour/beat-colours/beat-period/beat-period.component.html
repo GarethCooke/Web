@@ -17,7 +17,7 @@
   </div>
   <div class="decay">
     <mat-label class="decay-label">Decay</mat-label>
-    <mat-slider color="primary" min="1" max="500" thumbLabel step="1" tickInterval="100" (change)="saveChanges()" ngDefaultControl [(ngModel)]="beatdata.beatdecay">
+    <mat-slider thumbLabel discrete color="primary" min="1" max="500" step="1" tickInterval="100" (change)="saveChanges()" ngDefaultControl [(ngModel)]="beatdata.beatdecay">
       <input matSliderThumb />
     </mat-slider>
   </div>
