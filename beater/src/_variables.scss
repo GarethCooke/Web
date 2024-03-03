@@ -1,5 +1,5 @@
-@use "@angular/material" as mat;
-@use "beatertheme" as theme;
+@use '@angular/material' as mat;
+@use 'beatertheme' as theme;
 
 $primary: mat.get-color-from-palette(theme.$beater-primary);
 $component-elevation: 3;
@@ -12,8 +12,7 @@ $component-width: 400px;
 $component-input-width: 370px;
 $component-height: 330px;
 $component-tab-width: 50px;
-$tabbed-component-width: $component-width - $component-tab-width - 2 *
-  $component-padding;
+$tabbed-component-width: $component-width - $component-tab-width - 2 * $component-padding;
 
 $color-picker-width: 301px;
 

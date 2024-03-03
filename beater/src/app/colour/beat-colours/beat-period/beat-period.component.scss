@@ -5,21 +5,46 @@
   height: 50px;
   display: flex;
   align-items: center;
-}
-
-mat-label,
-mat-form-field {
-  font-size: 0.8em;
   margin-left: 5px;
 }
 
-mat-form-field {
-  width: 60px;
+.beat-period-universe > div {
+  margin-left: 5px;
 }
 
-input[type='range'] {
-  width: 80px;
-  align-items: center;
+.duration {
+  width: 18%;
+  height: 100%;
+}
+
+.beattoggle {
+  width: 22%;
+  height: 100%;
+}
+
+.beattoggleslider {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.beattoggle > div > mat-slide-toggle {
+  align-self: center;
+}
+
+mat-label {
+  font-size: 0.8em;
+  display: flex;
+  float: right;
+}
+
+.duration > mat-label {
+  float: left;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
 }
 
 button {
@@ -45,7 +70,6 @@ mat-icon {
 
 mat-slider {
   display: flex;
-  margin-left: 5px;
   width: 100%;
   min-width: 15px;
 }

@@ -17,6 +17,7 @@ bb-beat-period {
 .bb-td {
   display: flex;
   align-items: center;
+  padding-right: 5px;
 }
 
 button {
@@ -29,8 +30,8 @@ button {
 
 mat-icon {
   font-size: 1.5em;
-  position: absolute;
-  top: 55%;
+  position: relative;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

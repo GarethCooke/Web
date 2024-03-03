@@ -6,7 +6,7 @@
       </tr>
     </thead>
     <tbody cdkDropList class="bb-tbody" (cdkDropListDropped)="drop($event)">
-      <tr cdkDrag class="bb-tr" [cdkDragStartDelay]="100" *ngFor="let cyclecolour of settingsService.settings?.cyclecolours; let ndx = index">
+      <tr cdkDrag class="bb-tr" [cdkDragStartDelay]="200" *ngFor="let cyclecolour of settingsService.settings?.cyclecolours; let ndx = index">
         <td class="bb-td">
           <div class="drop-placeholder" *cdkDragPlaceholder></div>
           <bb-beat-period [beatdata]="cyclecolour"></bb-beat-period>

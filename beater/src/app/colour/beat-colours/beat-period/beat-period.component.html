@@ -2,13 +2,19 @@
   <button mat-mini-fab color="" aria-label="pick colour" (click)="colourPick(getBoundingClientRect($event.currentTarget))" [ngStyle]="{ background: beatdata ? beatdata.colour : 'white' }">
     <mat-icon [ngStyle]="{ color: iconColour() }">color_lens</mat-icon>
   </button>
-  <mat-form-field>
-    <input matInput type="number" min="0" max="60000" required (change)="saveChanges()" ngDefaultControl [(ngModel)]="beatdata.duration" />
+  <div class="duration">
     <mat-label>Duration</mat-label>
-  </mat-form-field>
-  <mat-label>Beat</mat-label>
-  <mat-slide-toggle color="primary" [ngModel]="beatdata ? beatdata.durationtype == 'time' : 0" (ngModelChange)="beatdata.durationtype = $event ? 'time' : 'beat'; saveChanges()"></mat-slide-toggle>
-  <mat-label>Time</mat-label>
+    <input matInput type="number" min="0" max="99" required (change)="saveChanges()" ngDefaultControl [(ngModel)]="beatdata.duration" />
+  </div>
+  <div class="beattoggle">
+    <div>
+      <mat-label style="float: left">Beat</mat-label>
+      <mat-label>Time</mat-label>
+    </div>
+    <div class="beattoggleslider">
+      <mat-slide-toggle color="primary" labelPosition="before" [ngModel]="beatdata ? beatdata.durationtype == 'time' : 0" (ngModelChange)="beatdata.durationtype = $event ? 'time' : 'beat'; saveChanges()"></mat-slide-toggle>
+    </div>
+  </div>
   <div class="decay">
     <mat-label class="decay-label">Decay</mat-label>
     <mat-slider color="primary" min="1" max="500" thumbLabel step="1" tickInterval="100" (change)="saveChanges()" ngDefaultControl [(ngModel)]="beatdata.beatdecay">
