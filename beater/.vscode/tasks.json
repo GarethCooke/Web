@@ -37,6 +37,27 @@
           }
         }
       }
+    },
+    {
+      "label": "Start Api",
+      "type": "npm",
+      "script": "api",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "Start Events",
+      "type": "npm",
+      "script": "events",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    },
+    {
+      "label": "StartServices",
+      "dependsOn": ["Start Api", "Start Events"],
+      "runOptions": { "runOn": "folderOpen" }
     }
   ]
 }
