@@ -16,28 +16,47 @@
   position: relative;
   align-items: bottom;
   flex-direction: column;
+  width: fit-content;
   padding: $main-component-padding;
 }
 
 .msgtxt {
   position: relative;
-  display: flex;
-  white-space: nowrap;
-  align-items: center;
-  width: 100%;
-}
-
-.msgtxt {
-  font-family: DotMatrix;
-  height: 90px;
-  font-size: 80px;
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  flex-grow: 1;
 }
 
 .msb-box {
   border-style: inset;
   color: red;
   background-color: lighten(black, 10%);
-  overflow-x: clip;
+  width: $component-input-width;
+  overflow-x: hidden;
+  position: relative;
+  display: flex;
+}
+
+.marquee {
+  position: relative;
+  width: fit-content;
+  white-space: nowrap;
+  font-family: DotMatrix;
+  height: 90px;
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+@keyframes marquee {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
 }
 
 .slidecontrols {
