@@ -5,9 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { WiFiConnect } from './wifi-connect';
 import { IWifiInfo } from './wifi-info';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class WifiSelectService {
   private urlGet = 'api/networkdata';
   private urlSet = 'api/networkset';
@@ -29,10 +27,7 @@ export class WifiSelectService {
     }
 
     const data: SaveData = new SaveData(selectedNetwork);
-    this.http.post<IWifiInfo>(this.urlSet, data).subscribe(
-      (res) => {},
-      (err) => console.log(err)
-    );
+    this.http.post<IWifiInfo>(this.urlSet, data).subscribe({ error: console.error });
   }
 
   private handleError(err: HttpErrorResponse) {

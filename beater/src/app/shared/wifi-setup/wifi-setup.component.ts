@@ -25,7 +25,7 @@ export class WifiSetupComponent implements OnInit {
   wifi: WiFiConnect = new WiFiConnect();
   @ViewChild(WapListComponent) waplist: WapListComponent | null = null;
 
-  constructor(private router: Router, private wifiSelectService: WifiSelectService) {}
+  constructor(private wifiSelectService: WifiSelectService) {}
 
   ngOnInit(): void {
     this.refreshWifiList();

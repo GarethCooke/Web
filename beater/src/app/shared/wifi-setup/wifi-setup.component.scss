@@ -1,7 +1,5 @@
-@import '../../../variables';
-
 .wifi-setup-universe {
-  margin: $main-component-padding;
+  margin: 10px;
 }
 
 .wifi-connect-indicator {
@@ -30,5 +28,5 @@ bb-wap-list {
 }
 
 button {
-  margin-right: $component-padding;
+  margin-right: 2px;
 }
