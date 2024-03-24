@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { WifiSetupComponent } from '../shared/wifi-setup/wifi-setup.component';
+import { WifiSetupComponent } from 'eelshared';
 
 @Component({
   selector: 'bb-wifi',
