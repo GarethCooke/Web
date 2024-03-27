@@ -1,4 +1,5 @@
 import { IBeatCycleColour } from './beat-cycle-colour';
+import { IBeaterCapabilities } from './beater-capabilities';
 
 export interface IBeaterSettings {
   power: boolean;
@@ -16,4 +17,5 @@ export interface IBeaterSettings {
   minbeatband: number;
   maxbeatband: number;
   cyclecolours: IBeatCycleColour[];
+  capabilities: IBeaterCapabilities;
 }

@@ -81,6 +81,15 @@
         "durationtype": "time",
         "beatdecay": "77"
       }
-    ]
+    ],
+    "capabilities": {
+      "led": true,
+      "led_addressable": true,
+      "wifi": true,
+      "equaliser": true,
+      "text_message": true,
+      "tft": false,
+      "broadcast": true
+    }
   }
 }
