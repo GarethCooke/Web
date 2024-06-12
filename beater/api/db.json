@@ -86,8 +86,8 @@
       "led": true,
       "led_addressable": true,
       "wifi": true,
-      "equaliser": true,
-      "text_message": true,
+      "equaliser": false,
+      "text_message": false,
       "tft": false,
       "broadcast": true
     }
